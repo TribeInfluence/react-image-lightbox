@@ -1592,7 +1592,7 @@ class ReactImageLightbox extends Component {
             />
           )}
 
-          <div // Lightbox toolbar
+          {this.props.enableToolbar && (<div // Lightbox toolbar
             className={`ril-toolbar ${styles.toolbar}`}
           >
             <ul
@@ -1661,7 +1661,7 @@ class ReactImageLightbox extends Component {
                 />
               </li>
             </ul>
-          </div>
+          </div>) }
 
           {this.props.imageCaption && (
             // eslint-disable-next-line jsx-a11y/no-static-element-interactions
@@ -1804,6 +1804,7 @@ ReactImageLightbox.propTypes = {
 
   // Set to false to disable zoom functionality and hide zoom buttons
   enableZoom: PropTypes.bool,
+  enableToolbar: PropTypes.bool,
 
   // Aria-labels
   nextLabel: PropTypes.string,
@@ -1824,6 +1825,7 @@ ReactImageLightbox.defaultProps = {
   closeLabel: 'Close lightbox',
   discourageDownloads: false,
   enableZoom: true,
+  enableToolbar: false,
   imagePadding: 10,
   keyRepeatKeyupBonus: 40,
   keyRepeatLimit: 180,
@@ -1839,7 +1841,7 @@ ReactImageLightbox.defaultProps = {
   prevSrc: null,
   prevSrcThumbnail: null,
   reactModalStyle: {},
-  wrapperClassName: '',
+  wrapperClassName: 'tribe-lightbox',
   zoomInLabel: 'Zoom in',
   zoomOutLabel: 'Zoom out',
 };
